@@ -1,0 +1,31 @@
+<div class="row m-200">
+  <div class="col-3"></div>
+  <div class="col-6">
+    <div class="card">
+      <article class="card-body">
+        <a href="" class="float-right btn btn-outline-primary">Sign up</a>
+        <h4 class="card-title mb-4 mt-1">Sign In</h4>
+        <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+          <div class="form-group">
+            <label>User Name</label>
+            <input name="" class="form-control" placeholder="User Name" type="email" formControlName="userName">
+          </div> <!-- form-group// -->
+          <div class="form-group">
+            <label>Password</label>
+            <input class="form-control" placeholder="******" type="password" formControlName="password">
+          </div> <!-- form-group// -->
+          <div class="form-group">
+            <a class="float-right" href="#">Forgot Password?</a>
+            <div class="checkbox">
+              <label> <input type="checkbox"> Save password </label>
+            </div> <!-- checkbox .// -->
+          </div> <!-- form-group// -->
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block" [disabled]="!loginForm.valid"> Login </button>
+          </div> <!-- form-group// -->
+        </form>
+      </article>
+    </div>
+  </div>
+  <div class="col-3"></div>
+</div>

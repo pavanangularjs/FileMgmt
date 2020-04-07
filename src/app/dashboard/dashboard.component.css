@@ -1,0 +1,14 @@
+.b1 {
+    width: 200px;
+    height: 200px;
+    margin: 20px;
+}
+
+.btn-center {
+    text-align: center;
+}
+
+.logout {
+    cursor: pointer;
+    text-align: right;
+}

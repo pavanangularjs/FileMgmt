@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Validators } from '@angular/forms';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
+
+import { AuthService } from './../auth/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -9,25 +11,23 @@ import { FormBuilder } from '@angular/forms';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  loginForm: any;
+  loginForm: FormGroup;
 
-  constructor(private router: Router, private fb: FormBuilder) { 
+  constructor(private authService: AuthService, private router: Router, private fb: FormBuilder) { 
+  }
+
+  ngOnInit() {
     this.loginForm = this.fb.group({
       userName: ['', Validators.required],
       password: ['', Validators.required],
     });
   }
 
-  ngOnInit() {
-  }
-
   onLogin() {
-    if (this.loginForm.controls.userName.value === 'admin' && this.loginForm.controls.password.value=== 'admin' ) {
-      // this.router.navigate(['/files']);
-      this.router.navigate(['/dashboard']);
-    } else {
-      alert('Invalid UserName/Password');
-    }
+
+    this.authService.login(this.loginForm.value);
+
+    
   }
 
 }

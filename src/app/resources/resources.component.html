@@ -1,0 +1,23 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a [routerLink]="['/service-dashboard']">Dashboard</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Resources</li>
+  </ol>
+</nav>
+
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th class="w-10">#</th>
+        <th class="w-90">Resource Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let res of resources; index as i">
+        <td class="w-10">{{i+1}}</td>
+        <td class="w-90"> <a [routerLink]="['/customer-docs']">{{res.name}}</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
